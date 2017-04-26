@@ -36,4 +36,7 @@ cd ../../../../
 
 # Run reaction
 reaction
+
+# Or on a different port
+reaction --port 3020
 ```
