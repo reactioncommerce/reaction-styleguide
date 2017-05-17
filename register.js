@@ -5,6 +5,12 @@ Reaction.registerPackage({
   name: "reaction-ui-playground",
   icon: "fa fa-play",
   autoEnable: true,
+  registry: [{
+    route: "/guide/:guide",
+    name: "guidePage",
+    priority: 20,
+    workflow: "reactionUIPlaygroundWorkflow"
+  }],
   layout: [{
     workflow: "reactionUIPlaygroundWorkflow",
     layout: "reactionUIPlaygroundLayout",

@@ -6,14 +6,34 @@ import ColorScreen from "./ColorScreen";
 import TypographyScreen from "./TypographyScreen";
 import Helmet from "react-helmet";
 
+import { Router } from "/client/api";
+import { Header, Sidebar } from "../components";
+import { Pages } from "../../lib/tocData";
+
+import Radium from "radium"
+
 const styles = {
   base: {
-    padding: 60
+    display: "flex",
+    flexDirection: "column",
+    width: "100%",
+    height: "100vh",
+    overflow: "hidden"
   }
 }
 
 class Playground extends Component {
   render() {
+
+    const guidePageName = Router.getParam("guide");
+    const pageComponent = Pages[guidePageName];
+
+    let element
+
+    if (pageComponent) {
+      element = React.createElement(pageComponent)
+    }
+
     return (
       <div style={styles.base}>
         <Helmet
@@ -25,14 +45,29 @@ class Playground extends Component {
             {src: "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/languages/javascript.min.js", type: "text/javascript"}
           ]}
         />
-        <TypographyScreen />
-        <ColorScreen />
-        <SwitchScreen />
-        <CardScreen />
-        <ButtonsScreen />
+        <Header />
+
+        <div
+          style={{
+            display: "flex"
+          }}
+        >
+          <Sidebar />
+          <div
+            style={{
+              padding: 60,
+              width: "100%",
+              flex: "1 1 auto",
+              overflow: "auto",
+              backgroundColor: "#fff"
+            }}
+          >
+            {element}
+          </div>
+        </div>
       </div>
     )
   }
 }
 
-export default Playground
+export default Radium(Playground)

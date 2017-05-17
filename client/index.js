@@ -47,7 +47,7 @@ export const ITEMS_INCREMENT = 24;
 
 Session.set("DEFAULT_LAYOUT", DEFAULT_LAYOUT);
 Session.setDefault("DEFAULT_WORKFLOW", DEFAULT_WORKFLOW);
-console.log("set");
+
 Session.set("INDEX_OPTIONS", INDEX_OPTIONS);
 Session.setDefault("productScrollLimit", ITEMS_INCREMENT);
 

@@ -1,7 +1,5 @@
 import React, { Component } from "react";
 import { Button, FlatButton, IconButton, Divider, Highlight, Section } from "../components"
-import ReactDOMServer from "react-dom/server"
-
 
 const details = {
   flat: {
