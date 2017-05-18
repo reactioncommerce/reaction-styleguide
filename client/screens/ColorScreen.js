@@ -22,12 +22,13 @@ const styles = {
   colorGroup: {
     flex: "1 1 auto",
     minWidth: "33%",
+    padding: "10px"
   },
   colorCircles: {
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    marginBottom: "1rem"
+    // display: "flex",
+    // justifyContent: "center",
+    // alignItems: "center",
+    marginBottom: "40px"
   },
   colorValues: {
     display: "flex",
@@ -35,15 +36,17 @@ const styles = {
     alignItems: "center"
   },
   circle: {
-    width: 60,
+    width: "100%",
     height: 60,
-    borderRadius: 30
+    // borderRadius: 30
   },
   circleSM: {
-    width: 30,
+    display: "flex",
+    alignItems: "center",
+    // width: 30,
     height: 30,
-    borderRadius: 15,
-    zIndex: 1
+    // borderRadius: 15,
+    // zIndex: 1
   },
   input: {
     border: "none",
@@ -69,25 +72,21 @@ class ColorScreen extends Component {
             transform: `translateX(${offset})`
           }
         ]}
-      />
+      >
+        <span>{color}</span>
+      </div>
     )
   }
 
   renderColorGroup() {
     console.log("okok");
     return colors.map((colorGroup, index) => {
-      console.log(colorGroup);
       return (
         <div key={index} style={styles.colorGroup}>
           <div style={styles.colorCircles}>
-            {this.renderColorCircle(colorGroup.bg, "sm", "10px")}
             {this.renderColorCircle(colorGroup.color)}
-            {this.renderColorCircle(colorGroup.fg, "sm", "-10px")}
-          </div>
-          <div style={styles.colorValues}>
-            <input value={colorGroup.bg} style={styles.input} disabled={true} /> {"\u2014"}
-            <input value={colorGroup.bg} style={styles.input} disabled={true} /> {"\u2014"}
-            <input value={colorGroup.bg} style={styles.input} disabled={true} />
+            {this.renderColorCircle(colorGroup.bg, "sm")}
+            {this.renderColorCircle(colorGroup.fg, "sm")}
           </div>
         </div>
       )
@@ -95,7 +94,6 @@ class ColorScreen extends Component {
   }
 
   render() {
-    console.log("ook??");
     return (
       <Section title="Colors">
         <div style={styles.colors}>

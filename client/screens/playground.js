@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import ButtonsScreen from "./ButtonsScreen";
-import CardScreen from "./CardScreen";
-import SwitchScreen from "./SwitchScreen";
-import ColorScreen from "./ColorScreen";
-import TypographyScreen from "./TypographyScreen";
+// import ButtonsScreen from "./ButtonsScreen";
+// import CardScreen from "./CardScreen";
+// import SwitchScreen from "./SwitchScreen";
+// import ColorScreen from "./ColorScreen";
+// import TypographyScreen from "./TypographyScreen";
 import Helmet from "react-helmet";
 
 import { Router } from "/client/api";
@@ -32,6 +32,7 @@ class Playground extends Component {
 
     if (pageComponent) {
       element = React.createElement(pageComponent)
+      console.log(guidePageName, element);
     }
 
     return (
@@ -49,7 +50,8 @@ class Playground extends Component {
 
         <div
           style={{
-            display: "flex"
+            display: "flex",
+            flex: "1 1 auto"
           }}
         >
           <Sidebar />

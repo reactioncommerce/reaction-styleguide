@@ -32,7 +32,7 @@ export default class TableOfContents extends React.Component {
         });
 
         return (
-          <li>
+          <li key={item.name}>
             <a href={url}>
               {item.label}
             </a>

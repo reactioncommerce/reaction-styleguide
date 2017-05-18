@@ -33,15 +33,15 @@ const bezelStyles = [
 
 class ButtonsScreen extends Component {
 
-  renderButtons() {
+  renderIconButtons() {
     return bezelStyles.map((bezelStyle) => {
       const detail = details[bezelStyle];
 
       const family = statusNames.map((statusName) => {
         return (
           <div style={{display: "flex", padding: 5}}>
-            <Button
-              label="Button"
+            <IconButton
+              icon={"fa fa-star"}
               bezelStyle={bezelStyle}
               status={statusName}
             />
@@ -57,15 +57,6 @@ class ButtonsScreen extends Component {
             {family}
           </div>
           <Divider />
-          <div>
-            <Highlight className="html">
-              <Button
-                label="Button"
-                bezelStyle="solid"
-                status="primary"
-              />
-            </Highlight>
-          </div>
         </div>
       )
     })
@@ -74,7 +65,7 @@ class ButtonsScreen extends Component {
   render() {
     return (
       <Section title="Buttons">
-        {this.renderButtons()}
+        {this.renderIconButtons()}
       </Section>
     )
   }

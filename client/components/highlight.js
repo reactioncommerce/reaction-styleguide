@@ -18,7 +18,7 @@ class Highlight extends Component {
     var nodes = domNode.querySelectorAll('pre code');
     if (nodes.length > 0) {
       for (var i = 0; i < nodes.length; i=i+1) {
-        window.hljs && window.hljs.highlightBlock(nodes[i]);
+        hljs.highlightBlock(nodes[i]);
       }
     }
   }

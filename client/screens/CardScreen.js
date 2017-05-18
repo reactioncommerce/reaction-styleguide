@@ -31,7 +31,7 @@ const bezelStyles = [
   "outline"
 ]
 
-class Buttons extends Component {
+class CardScreen extends Component {
 
 
   renderButtons() {
@@ -106,4 +106,4 @@ class Buttons extends Component {
   }
 }
 
-export default Buttons
+export default CardScreen
