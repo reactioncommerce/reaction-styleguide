@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Alerts, Alert, Section } from "../components"
+import { Alerts, Alert, Section, PropTable, ExampleBlock } from "../components"
 
 
 const details = {
@@ -34,7 +34,7 @@ const bezelStyles = [
 const alertArray = [
   {
     message: "Something went really wrong",
-    mode: "error",
+    mode: "danger",
     options: {
       autoHide: 4000
     }
@@ -48,11 +48,20 @@ const alertArray = [
   }
 ];
 
+const componentProps = [
+  { name: "alerts", type: "Array[Object]", description: "An array of alert objects" }
+]
+
 class AlertsScreen extends Component {
   render() {
     return (
-      <Section title="Switch">
+      <Section title="Alerts">
         <Alerts alerts={alertArray} />
+
+        <ExampleBlock componentProps={componentProps}>
+          <Alerts alerts={alertArray} />
+        </ExampleBlock>
+
       </Section>
     )
   }
