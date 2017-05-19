@@ -14,6 +14,9 @@ Reaction.registerPackage({
   layout: [{
     workflow: "reactionUIPlaygroundWorkflow",
     layout: "reactionUIPlaygroundLayout",
-    enabled: true
+    enabled: true,
+    structure: {
+      template: "reactionUIPlaygroundLayout"
+    }
   }]
 });

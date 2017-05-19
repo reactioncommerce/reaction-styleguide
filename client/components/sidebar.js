@@ -1,18 +1,42 @@
-import React from "react";
+import React, { Component } from "react";
 import classnames from "classnames";
 import "underscore";
 // import s from "underscore.string";
 import tocData from "../../lib/tocData"
 import { Reaction, Router } from "/client/api"
 
-export default class TableOfContents extends React.Component {
 
-  handleDocNavigation(event) {
+
+class TOCLink extends Component {
+  handleClick = (event) => {
     event.preventDefault();
 
-    if (this.props.onDocNavigation) {
-      this.props.onDocNavigation(event.currentTarget.href);
-    }
+    Router.go("guidePage", {
+      guide: this.props.item.name
+    })
+  }
+  render() {
+    const url = Router.pathFor("guidePage", {
+      hash: {
+        guide: this.props.item.name
+      }
+    });
+
+    return (
+      <a href={url} onClick={this.handleClick}>
+        {this.props.item.label}
+      </a>
+    )
+  }
+}
+
+
+export default class TableOfContents extends React.Component {
+
+  handleDocNavigation(name) {
+    event.preventDefault();
+    console.log(event.currentTarget.href);
+    Router.go(event.currentTarget.href);
   }
 
   render() {
@@ -25,17 +49,13 @@ export default class TableOfContents extends React.Component {
 
     const menu = tocData.groups.map((group) => {
       const items = group.items.map((item) => {
-        const url = Router.pathFor("guidePage", {
-          hash: {
-            guide: item.name
-          }
-        });
+
+
+
 
         return (
           <li key={item.name}>
-            <a href={url}>
-              {item.label}
-            </a>
+            <TOCLink item={item} />
           </li>
         )
       })

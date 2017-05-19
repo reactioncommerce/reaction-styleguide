@@ -8,13 +8,16 @@ const media = [
 ]
 
 class MediaScreen extends Component {
+  /*
+  <MediaGallery
+    editable={false}
+    media={media}
+  />
+   */
   render() {
     return (
       <Section title="Checkbox">
-        <MediaGallery
-          editable={false}
-          media={media}
-        />
+        {"TODO"}
       </Section>
     )
   }

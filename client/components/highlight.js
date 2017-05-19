@@ -27,7 +27,7 @@ class Highlight extends Component {
     return (
       <pre>
         <code className={this.props.className}>
-          {ReactDOMServer.renderToString(this.props.children)}
+          {ReactDOMServer.renderToStaticMarkup(this.props.children)}
         </code>
       </pre>
     )

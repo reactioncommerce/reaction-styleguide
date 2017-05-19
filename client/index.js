@@ -1,28 +1,15 @@
-import "./templates/home.html";
-import "./templates/home.js";
 import { Router } from "/client/api";
 import { ReactionLayout } from "/client/modules/router/main.js";
+import { registerComponent } from "/imports/plugins/core/layout/lib/components";
+import playground from "./screens/playground";
 
-// Session.setDefault("DEFAULT_LAYOUT", "reactionUIPlaygroundHome");
-// Session.setDefault("DEFAULT_WORKFLOW", "reactionUIPlaygroundHome");
-
-
-// Router.route('/', {
-//     // do some action for this route
-//     action: function(params, queryParams) {
-//         console.log("Params:", params);
-//         console.log("Query Params:", queryParams);
-//         ReactionLayout({
-//           template: "reactionUIPlayground"
-//       });
-//     },
-//
-//     // name: "<name for the route>" // optional
-// });
-//
-// Router._routes = []
 
 import { Session } from "meteor/session";
+
+registerComponent({
+  name: "reactionUIPlaygroundLayout",
+  component: playground
+})
 
 /**
  * Misc. App. Configuration
@@ -39,7 +26,9 @@ export const DEFAULT_WORKFLOW = "coreWorkflow";
 // Use this to override just the home Package
 // ie: {template: "products"}
 export const INDEX_OPTIONS = {
-  workflow: "reactionUIPlaygroundWorkflow"
+  workflow: "reactionUIPlaygroundWorkflow",
+  layout: "reactionUIPlaygroundLayout",
+  template: "reactionUIPlaygroundLayout"
 };
 
 // default load qty for product grid
