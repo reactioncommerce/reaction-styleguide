@@ -49,7 +49,15 @@ const alertArray = [
 ];
 
 const componentProps = [
-  { name: "alerts", type: "Array[Object]", description: "An array of alert objects" }
+  {
+    name: "alerts",
+    type: "Array[Object]",
+    description: "An array of alert objects",
+    "control": {
+      type: "text",
+      value: JSON.stringify(alertArray)
+    }
+  }
 ]
 
 class AlertsScreen extends Component {
@@ -58,7 +66,9 @@ class AlertsScreen extends Component {
       <Section title="Alerts">
         <Alerts alerts={alertArray} />
 
-        <ExampleBlock componentProps={componentProps}>
+        <ExampleBlock
+          componentProps={componentProps}
+        >
           <Alerts alerts={alertArray} />
         </ExampleBlock>
 

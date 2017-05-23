@@ -3,6 +3,7 @@ import { Button, FlatButton, IconButton, Divider } from "../components"
 import ReactDOM from "react-dom"
 import ReactDOMServer from "react-dom/server"
 import hljs from "highlight.js"
+import reactElementToJSXString from '../../lib/react-element-to-jsx-string';
 
 class Highlight extends Component {
   componentDidMount() {
@@ -25,9 +26,9 @@ class Highlight extends Component {
 
   render() {
     return (
-      <pre>
+      <pre className="sg-example-code">
         <code className={this.props.className}>
-          {ReactDOMServer.renderToStaticMarkup(this.props.children)}
+          {reactElementToJSXString(this.props.children)}
         </code>
       </pre>
     )

@@ -38,9 +38,6 @@ class Playground extends Component {
     return (
       <div style={styles.base}>
         <Helmet
-          link={[
-            {rel: "stylesheet", href: "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/tomorrow-night-eighties.min.css"},
-          ]}
           script={[
             {src: "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js", type: "text/javascript"},
             {src: "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/languages/javascript.min.js", type: "text/javascript"}

@@ -12,17 +12,17 @@ class ExampleBlock extends Component {
   render() {
     return (
       <div>
-        <div style={styles.base}>
+        <div className="sg-example-block" style={styles.base}>
           <Highlight>
             {this.props.children}
           </Highlight>
-          <div>
+          <div className="sg-example-component">
             {this.props.children}
           </div>
         </div>
 
 
-        <PropTable componentProps={this.props.componentProps}/>
+        <PropTable componentProps={this.props.componentProps} />
       </div>
 
     )
