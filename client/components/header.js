@@ -147,6 +147,14 @@ class Header extends Component {
                 </ul>
               </div>
             </div>
+            {/*
+            <div className="github-stars-link">
+              <a className="github-link" href="https://github.com/reactioncommerce/reaction/stargazers">
+                <span className="github-icon"><i className="fa fa-github fa-2x" aria-hidden="true"></i></span>
+                <span className="github-star-number"><i className="fa fa-star-o" aria-hidden="true"></i> {this.getStargazersCount()}</span>
+              </a>
+            </div>
+            */}
             <a href="https://docs.reactioncommerce.com" className="reaction-nav-link reaction-nav-link-docs">
               <DocsIcon height={"22px"} />
               Docs

@@ -1,0 +1,191 @@
+.redoc.control.search {
+  display: flex;
+  position: relative;
+  border: 1px solid @black10;
+  background-color: @white;
+}
+
+.redoc.control.search .icon {
+  flex: 0 0 auto;
+  padding: 5px 5px 5px 10px;
+}
+
+.redoc.control.search input {
+  position: relative;
+  flex: 1 1 auto;
+  padding: 0 10px 0 30px;
+  height: 100%;
+  border: none;
+  background-color: transparent;
+  z-index: 1;
+}
+
+.redoc.control.search .btn {
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  height: 100%;
+  z-index: 1;
+}
+
+.redoc.control .icon {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 5px;
+  z-index: 0;
+}
+
+.redoc.control .icon.left {
+  left: 0;
+}
+
+.redoc.control .icon.right {
+  right: 15px;
+}
+
+.redoc.control.select {
+  border: 1px solid @black10;
+  background-color: @white;
+  position: relative;
+}
+
+.redoc.control.select select {
+  position: relative;
+  padding: 0 40px 0 20px;
+  width: 100%;
+  height: 100%;
+  border: none;
+  background-color: transparent;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  z-index: 1;
+}
+
+.redoc.control {
+  display: flex;
+  align-items: center;
+  height: 36px;
+  border-radius: 18px;
+}
+
+a.reaction-btn,
+button.reaction-btn,
+input.reaction-btn {
+  background-color: @sg-aqua-color;
+  border: 8px solid @sg-white;
+  border-radius: 35px;
+  color: @sg-deep-blue;
+  display: inline-block;
+  font-size: .75rem;
+  font-weight: bold;
+  letter-spacing: 0.075rem;
+  padding: 1.25em 5.5em 1.25em 2.25em;
+  text-decoration: none;
+  text-transform: uppercase;
+  position: relative;
+  cursor: pointer;
+  outline: none;
+  transition: @sg-transition-out ease-in-out background-color;
+
+  .btn__arrow {
+    position: absolute;
+    right: 2.25em;
+    top: 50%;
+    transition: @sg-transition-out ease-in-out right;
+
+    &:after {
+      content: '';
+      display: block;
+      border-right: 2px solid @sg-deep-blue;
+      border-bottom: 2px solid @sg-deep-blue;
+      width: 12px;
+      height: 12px;
+      position: absolute;
+      bottom: -6px;
+      right: 0px;
+      transform: rotate(-45deg);
+    }
+
+    &:before {
+      content: '';
+      display: block;
+      position: absolute;
+      right: 0px;
+      top: -1px;
+      height: 2px;
+      width: 18px;
+      background-color: @sg-deep-blue;
+    }
+  }
+
+  .btn__icon {
+    position: absolute;
+    right: 2.25em;
+    top: 1em;
+    transition: @sg-transition-out ease-in-out right;
+    img {
+      height: 1.7em;
+    }
+  }
+
+  &:hover {
+    transition-duration: @sg-transition-in;
+    background-color: darken(@sg-aqua-color, 5);
+
+    .btn__arrow {
+      right: 2em;
+      transition-duration: @sg-transition-in;
+    }
+
+    &.btn-gray {
+      background-color: darken(@sg-tope-color, 5);
+    }
+
+    &.btn-accent {
+      background-color: darken(@sg-fire-color, 5);
+    }
+  }
+
+  &.btn-gray {
+    background-color: @sg-tope-color;
+
+    @media screen and (max-width: @screen-xs-max) {
+      background-color: @sg-white;
+      border: 1px solid @sg-deep-blue;
+
+      &:hover {
+        background-color: @sg-white;
+      }
+    }
+  }
+
+  &.btn-clear {
+    background-color: transparent;
+    border: 0;
+
+    @media screen and (max-width: @screen-xs-max) {
+      background-color: transparent;
+
+      &:hover {
+        background-color: transparent;
+      }
+    }
+  }
+
+  &.btn-accent {
+    background-color: @sg-fire-color;
+    color: @sg-white;
+
+    .btn__arrow {
+      &:after {
+        border-color: @sg-white;
+      }
+      &:before {
+        background-color: @sg-white;
+      }
+    }
+  }
+}

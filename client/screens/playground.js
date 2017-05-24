@@ -37,12 +37,7 @@ class Playground extends Component {
 
     return (
       <div style={styles.base}>
-        <Helmet
-          script={[
-            {src: "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js", type: "text/javascript"},
-            {src: "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/languages/javascript.min.js", type: "text/javascript"}
-          ]}
-        />
+        <Helmet />
         <Header />
 
         <div

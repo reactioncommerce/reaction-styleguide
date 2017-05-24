@@ -1,6 +1,7 @@
-import React, { Component } from "react";
+import React, { Children, Component } from "react";
 import Radium from "radium";
 import { Alerts, Alert, Section, PropTable, Highlight } from "../components"
+import { isEqual, isEmpty } from "lodash";
 
 const styles = {
   base: {
@@ -9,20 +10,73 @@ const styles = {
 }
 
 class ExampleBlock extends Component {
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      exampleProps: this.getComponentPropObject(props.componentProps)
+    }
+  }
+
+  getComponentPropObject(componentProps) {
+    const props = {}
+
+    if (Array.isArray(componentProps)) {
+      componentProps.forEach((prop) => {
+        if (prop.control && isEmpty(prop.control.value) === false) {
+          props[prop.name] = prop.control.value
+        }
+      })
+    }
+
+    return props
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (isEqual(nextProps, this.props) === false) {
+      this.setState({
+        exampleProps: this.getComponentPropObject(nextProps.componentProps)
+      })
+    }
+  }
+
+  handlePropChange = (value, name) => {
+    const exampleProps = {
+      ...this.state.exampleProps || {}
+    }
+
+    exampleProps[name] = value
+
+    this.setState({
+      exampleProps
+    })
+  }
+
   render() {
+
+    const singleChild = Children.only(this.props.children)
+    const exampleComponent = React.cloneElement(singleChild, {
+      ...this.state.exampleProps
+    })
+
     return (
       <div>
         <div className="sg-example-block" style={styles.base}>
           <Highlight>
-            {this.props.children}
+            {exampleComponent}
           </Highlight>
           <div className="sg-example-component">
-            {this.props.children}
+            {exampleComponent}
           </div>
         </div>
 
 
-        <PropTable componentProps={this.props.componentProps} />
+        <PropTable
+          componentProps={this.props.componentProps}
+          exampleProps={this.state.exampleProps}
+          onPropChange={this.handlePropChange}
+        />
       </div>
 
     )
