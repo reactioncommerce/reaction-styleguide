@@ -56,9 +56,15 @@ class ExampleBlock extends Component {
   render() {
 
     const singleChild = Children.only(this.props.children)
-    const exampleComponent = React.cloneElement(singleChild, {
+    let exampleComponent = React.cloneElement(singleChild, {
       ...this.state.exampleProps
     })
+
+    if (this.props.wrapperComponent) {
+      exampleComponent = React.cloneElement(this.props.wrapperComponent, {
+        children: exampleComponent
+      })
+    }
 
     return (
       <div>

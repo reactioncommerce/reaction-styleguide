@@ -5,13 +5,13 @@ const styles = {
     maxWidth: "1140px",
     marginBottom: 60
   }
-}
+};
 
 class Section extends Component {
   render() {
     return (
       <div style={styles.base}>
-        <h2>{this.props.title}</h2>
+        <h1>{this.props.title}</h1>
         <div>
           {this.props.children}
         </div>
@@ -20,4 +20,4 @@ class Section extends Component {
   }
 }
 
-export default Section
+export default Section;

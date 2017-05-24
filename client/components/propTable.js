@@ -85,8 +85,8 @@ class PropTable extends Component {
 
   render() {
     return (
-      <div>
-        <h2>{"Properties"}</h2>
+      <div className="sg-proptable">
+        <h3>{"Properties"}</h3>
         <table className="table sg-table">
           <thead>
             <tr>
