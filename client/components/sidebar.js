@@ -77,7 +77,7 @@ class TableOfContents extends React.Component {
     });
     const prefix = Reaction.getShopPrefix()
 
-    const menu = tocData.groups.map((group) => {
+    const menu = tocData.groups.map((group, groupIndex) => {
       const items = group.items.map((item) => {
 
 
@@ -108,7 +108,7 @@ class TableOfContents extends React.Component {
       })
 
       return (
-        <div className="sg nav-group">
+        <div className="sg nav-group" key={`group-${groupIndex}`}>
           <h4>{group.label}</h4>
           <ul className="menu">
             {items}
