@@ -32,7 +32,6 @@ class Playground extends Component {
 
     if (pageComponent) {
       element = React.createElement(pageComponent)
-      console.log(guidePageName, element);
     }
 
     return (

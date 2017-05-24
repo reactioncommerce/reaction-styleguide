@@ -1,6 +1,6 @@
 import React, { Children, Component } from "react";
 import Radium from "radium";
-import { Alerts, Alert, Section, PropTable, Highlight } from "../components"
+import { Alerts, Alert, Section, PropTable, Highlight, Translation } from "../components"
 import { isEqual, isEmpty } from "lodash";
 
 const styles = {
@@ -53,6 +53,16 @@ class ExampleBlock extends Component {
     })
   }
 
+  renderTitle() {
+    if (this.props.title) {
+      return (
+        <h3><Translation defaultValue={this.props.title} i18nKey={this.props.i18nKeytitle} /></h3>
+      )
+    }
+
+    return null;
+  }
+
   render() {
 
     const singleChild = Children.only(this.props.children)
@@ -68,6 +78,7 @@ class ExampleBlock extends Component {
 
     return (
       <div>
+        {this.renderTitle()}
         <div className="sg-example-block" style={styles.base}>
           <Highlight>
             {exampleComponent}

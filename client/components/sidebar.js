@@ -4,17 +4,20 @@ import "underscore";
 // import s from "underscore.string";
 import tocData from "../../lib/tocData"
 import { Reaction, Router } from "/client/api"
-
+import { composeWithTracker } from "/lib/api/compose"
 
 
 class TOCLink extends Component {
   handleClick = (event) => {
     event.preventDefault();
 
-    Router.go("guidePage", {
-      guide: this.props.item.name
-    })
+    if (this.props.group !== true) {
+      Router.go("guidePage", {
+        guide: this.props.item.name
+      });
+    }
   }
+
   render() {
     const url = Router.pathFor("guidePage", {
       hash: {
@@ -22,16 +25,22 @@ class TOCLink extends Component {
       }
     });
 
+    const linkClassName = classnames({
+      active: this.props.active
+    });
+
     return (
-      <a href={url} onClick={this.handleClick}>
-        {this.props.item.label}
+      <a className={linkClassName} href={url} onClick={this.handleClick}>
+        <span>
+          {this.props.item.label}
+        </span>
       </a>
     )
   }
 }
 
 
-export default class TableOfContents extends React.Component {
+class TableOfContents extends React.Component {
 
   handleDocNavigation(name) {
     event.preventDefault();
@@ -39,9 +48,30 @@ export default class TableOfContents extends React.Component {
     Router.go(event.currentTarget.href);
   }
 
+  renderSubItems(item) {
+    const items = item.items.map((item) => {
+
+      const linkClassName = classnames({
+        "sg": true,
+        "guide-sub-nav-item": true
+      });
+
+      return (
+        <li className={linkClassName} key={item.name}>
+          <TOCLink
+            item={item}
+            active={item.name === this.props.guideName}
+          />
+        </li>
+      )
+    })
+
+    return items
+  }
+
   render() {
     const classes = classnames({
-      redoc: true,
+      sg: true,
       sidebar: true,
       visible: this.props.isMenuVisible
     });
@@ -51,19 +81,36 @@ export default class TableOfContents extends React.Component {
       const items = group.items.map((item) => {
 
 
+        if (item.items) {
+          return (
+            <li className="guide-sub-nav-item" key={item.name}>
+              <TOCLink
+                item={item}
+                group={true}
+                onClick={this.handleExpandGroup}
+              />
 
+              <ul className="sg sub-menu">
+                {this.renderSubItems(item)}
+              </ul>
+            </li>
+          )
+        }
 
         return (
-          <li key={item.name}>
-            <TOCLink item={item} />
+          <li className="guide-sub-nav-item" key={item.name}>
+            <TOCLink
+              item={item}
+              active={item.name === this.props.guideName}
+            />
           </li>
         )
       })
 
       return (
-        <div>
+        <div className="sg nav-group">
           <h4>{group.label}</h4>
-          <ul>
+          <ul className="menu">
             {items}
           </ul>
         </div>
@@ -72,10 +119,18 @@ export default class TableOfContents extends React.Component {
 
     return (
       <div className={classes}>
-        <div className="menu">
-          {menu}
-        </div>
+        {menu}
       </div>
     );
   }
 }
+
+
+function composer(props, onData) {
+
+  onData(null, {
+    guideName: Router.getParam("guide")
+  });
+}
+
+export default composeWithTracker(composer)(TableOfContents)
