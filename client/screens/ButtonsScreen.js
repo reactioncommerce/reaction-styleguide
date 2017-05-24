@@ -186,7 +186,7 @@ const componentProps = [
   {
     name: "status",
     type: "String",
-    description: "Sets button state with a string. primary | success | info | warning | danger | link | cta | default",
+    description: "Sets button state with a string. `primary | success | info | warning | danger | link | cta | default`",
     control: {
       type: "select",
       value: "default",

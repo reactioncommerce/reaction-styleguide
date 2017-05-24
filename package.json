@@ -8,9 +8,10 @@
   "author": "Reaction Commerce <hello@reactioncommerce.com>",
   "license": "GPL-3.0",
   "dependencies": {
-    "highlight.js": "^9.10.0",
     "collapse-white-space": "^1.0.0",
+    "highlight.js": "^9.10.0",
     "is-plain-object": "^2.0.1",
+    "showdown": "^1.6.4",
     "sortobject": "^1.0.0",
     "stringify-object": "^3.2.0",
     "traverse": "^0.6.6"

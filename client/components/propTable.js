@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 import { Select, Switch, TextField } from "./";
+import showdown from "showdown";
+
+const converter = new showdown.Converter();
 
 class PropTable extends Component {
 
@@ -57,6 +60,12 @@ class PropTable extends Component {
     return null;
   }
 
+  createMarkup(text) {
+    return {
+      __html: converter.makeHtml(text)
+    }
+  }
+
   renderRows() {
     if (Array.isArray(this.props.componentProps)) {
       return this.props.componentProps.map((prop, index) => {
@@ -64,7 +73,7 @@ class PropTable extends Component {
           <tr key={index}>
             <td>{prop.name}</td>
             <td>{prop.type}</td>
-            <td>{prop.description}</td>
+            <td><div dangerouslySetInnerHTML={this.createMarkup(prop.description)} /></td>
             <td>{this.renderControl(prop)}</td>
           </tr>
         )
