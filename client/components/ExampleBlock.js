@@ -111,6 +111,7 @@ class ExampleBlock extends Component {
 
     return (
       <div>
+        {this.renderTitle()}
         {this.renderImport()}
         <div className="sg-import-heading">{"Example"}</div>
         <div className="sg-example-block" style={styles.base}>
