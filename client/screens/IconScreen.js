@@ -3,6 +3,7 @@ import { Icon, Section, ExampleBlock, Text } from "../components"
 import * as PTD from "../../lib/propTypeDefinitions";
 import { composeWithTracker } from "/lib/api/compose"
 import { Packages } from "/lib/collections"
+import { uniq } from "lodash"
 
 export const iconProps = [
   {
@@ -35,9 +36,9 @@ class IconScreen extends Component {
           </Text>
 
           <div>
-            {this.props.icons.map((icon) => {
+            {this.props.icons.map((icon, index) => {
               return (
-                <span style={{padding: 5}}>
+                <span style={{padding: 5}} key={index}>
                   <Icon icon={icon} />
                 </span>
               )
@@ -62,11 +63,13 @@ class IconScreen extends Component {
 
 function composer(props, onData) {
   const icons = Packages.find({}).map((packageData) => {
-    return packageData.icon
+    if (typeof packageData.icon === "string" && packageData.icon.length) {
+      return packageData.icon;
+    }
   });
 
   onData(null, {
-    icons
+    icons: uniq(icons)
   });
 }
 
