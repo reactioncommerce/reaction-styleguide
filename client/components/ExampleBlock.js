@@ -2,6 +2,7 @@ import React, { Children, Component } from "react";
 import Radium from "radium";
 import { Alerts, Alert, Section, PropTable, Highlight, Translation } from "../components"
 import { isEqual, isEmpty } from "lodash";
+import reactElementToJSXString from '../../lib/react-element-to-jsx-string';
 
 const styles = {
   base: {
@@ -63,6 +64,33 @@ class ExampleBlock extends Component {
     return null;
   }
 
+  renderImport() {
+    let importText = this.props.importStatement;
+
+    if (typeof this.props.importStatement === "object") {
+      const { named, path } = this.props.importStatement;
+      const namedImports = named.join(", ");
+
+      importText = `import { ${namedImports} } from "/imports/plugins/${path}";`;
+    } else if (typeof this.props.importStatement === "string") {
+      importText = thishis.props.importStatement
+
+    }
+
+    if (importText) {
+      return (
+        <div className="sg-import-block">
+          <div className="sg-import-heading">{"import"}</div>
+          <Highlight type="text">
+            {importText}
+          </Highlight>
+        </div>
+      );
+    }
+
+    return null;
+  }
+
   render() {
 
     const singleChild = Children.only(this.props.children)
@@ -78,7 +106,7 @@ class ExampleBlock extends Component {
 
     return (
       <div>
-        {this.renderTitle()}
+        {this.renderImport()}
         <div className="sg-example-block" style={styles.base}>
           <Highlight>
             {exampleComponent}
