@@ -27,8 +27,7 @@ const statusNames = [
 
 const bezelStyles = [
   "flat",
-  "solid",
-  "outline"
+  "solid"
 ]
 
 const componentProps = [
@@ -44,14 +43,13 @@ const componentProps = [
   {
     name: "bezelStyle",
     type: "String",
-    description: "flat | solid | outline",
+    description: "flat | solid",
     control: {
       type: "select",
       value: "solid",
       options: [
         { label: "flat", value: "flat" },
-        { label: "solid", value: "solid" },
-        { label: "outline", value: "outline" }
+        { label: "solid", value: "solid" }
       ]
     }
   },
