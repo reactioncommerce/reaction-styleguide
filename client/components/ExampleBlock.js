@@ -10,6 +10,9 @@ const styles = {
   }
 }
 
+const defaultUIImportPath = "/imports/plugins/core/ui/client/components"
+const repoUrl = "https://github.com/reactioncommerce/reaction/tree/master"
+
 class ExampleBlock extends Component {
 
   constructor(props) {
@@ -66,15 +69,22 @@ class ExampleBlock extends Component {
 
   renderImport() {
     let importText = this.props.importStatement;
+    let importSource;
 
     if (typeof this.props.importStatement === "object") {
-      const { named, path } = this.props.importStatement;
+      const { named, path, source } = this.props.importStatement;
       const namedImports = named.join(", ");
+      importSource = (
+        <span> - <a href={`${repoUrl}${source}`} target="_blank">{"View on Github"}</a></span>
+      )
 
-      importText = `import { ${namedImports} } from "/imports/plugins/${path}";`;
+      if (path) {
+        importText = `import { ${namedImports} } from "/imports/plugins/${path}";`;
+      } else {
+        importText = `import { ${namedImports} } from "${defaultUIImportPath}";`;
+      }
     } else if (typeof this.props.importStatement === "string") {
       importText = thishis.props.importStatement
-
     }
 
     if (importText) {
@@ -83,7 +93,7 @@ class ExampleBlock extends Component {
        */
       return (
         <div>
-          <div className="sg-import-heading">{"Import"}</div>
+          <div className="sg-import-heading">{"Import"}{importSource}</div>
           <div className="sg-import-block">
             <Highlight type="text">
               {importText}
@@ -99,6 +109,7 @@ class ExampleBlock extends Component {
   render() {
 
     const singleChild = Children.only(this.props.children)
+    let fakeComponent
     let exampleComponent = React.cloneElement(singleChild, {
       ...this.state.exampleProps
     })
@@ -109,6 +120,12 @@ class ExampleBlock extends Component {
       })
     }
 
+    if (this.props.fakeComponent) {
+      fakeComponent = React.cloneElement(this.props.fakeComponent, {
+        ...this.state.exampleProps
+      })
+    }
+
     return (
       <div>
         {this.renderTitle()}
@@ -116,7 +133,7 @@ class ExampleBlock extends Component {
         <div className="sg-import-heading">{"Example"}</div>
         <div className="sg-example-block" style={styles.base}>
           <Highlight>
-            {exampleComponent}
+            {fakeComponent || exampleComponent}
           </Highlight>
           <div className="sg-example-component">
             {exampleComponent}
