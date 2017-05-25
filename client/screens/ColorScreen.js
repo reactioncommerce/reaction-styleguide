@@ -1,27 +1,18 @@
 import React, { Component } from "react";
 import Radium from "radium"
 import { Switch, FlatButton, IconButton, Divider, Card, CardBody, CardHeader, Section, TextField } from "../components"
-
-const colors = [
-  { label: "Primary", bg: "#8DBBD3", color: "#1999dd", fg: "#11A7F0" },
-  { label: "Primary", bg: "#CCEEE5", color: "#94E8D1", fg: "#8FF4D8" },
-  { label: "Primary", bg: "#EDEDED", color: "#ffffff", fg: "#EDEDED" },
-  { label: "Primary", bg: "#ADDFC9", color: "#34D891", fg: "#34E598" },
-  { label: "Primary", bg: "#809DAA", color: "#23566D", fg: "#257294" },
-  { label: "Primary", bg: "#BFC8CC", color: "#343434", fg: "#4A5052" },
-  { label: "Primary", bg: "#EAD9AB", color: "#EFC95F", fg: "#FBD05A" },
-  { label: "Primary", bg: "#E79FA6", color: "#EB4D5C", fg: "#E79FA6" },
-  { label: "Primary", bg: "#B0D1F0", color: "#B0D1F0", fg: "#128DFC" }
-]
+import colors from "../../lib/colors"
+import tinycolor from "tinycolor2";
 
 const styles = {
   colors: {
     display: "flex",
-    flexWrap: "wrap"
+    flexWrap: "wrap",
   },
   colorGroup: {
     flex: "1 1 auto",
-    minWidth: "33%",
+    minWidth: "25%",
+    maxWidth: "25%",
     padding: "10px"
   },
   colorCircles: {
@@ -35,16 +26,16 @@ const styles = {
     justifyContent: "center",
     alignItems: "center"
   },
-  circle: {
+  block: {
     width: "100%",
-    height: 60,
-    // borderRadius: 30
-  },
-  circleSM: {
     display: "flex",
-    alignItems: "center",
-    // width: 30,
-    height: 30,
+    height: 60,
+    padding: "10px",
+    fontSize: "12px"
+  },
+  blockLG: {
+    display: "flex",
+    height: 120,
     // borderRadius: 15,
     // zIndex: 1
   },
@@ -61,36 +52,47 @@ class ColorScreen extends Component {
     checked: true
   }
 
-  renderColorCircle(color, size = "normal", offset = 0) {
-    return (
-      <div
-        style={[
-          styles.circle,
-          size === "sm" ? styles.circleSM : undefined,
-          {
-            backgroundColor: color,
-            transform: `translateX(${offset})`
-          }
-        ]}
-      >
-        <span>{color}</span>
-      </div>
-    )
-  }
-
   renderColorGroup() {
-    console.log("okok");
-    return colors.map((colorGroup, index) => {
+    return colors.map((colorsGroups, index) => {
+
+      const group = colorsGroups.map((color, colorIndex) => {
+        const isLight = tinycolor(color.color).isLight();
+
+        return (
+          <div
+            key={colorIndex}
+            style={[
+              styles.block,
+              colorIndex === 0 ? styles.blockLG : undefined,
+              { backgroundColor: color.color }
+            ]}
+          >
+            <span
+              style={{
+                flex: "1 1 auto",
+                color: isLight ? "black" : "white"
+              }}
+            >
+              {color.name}
+            </span>
+            <span
+              style={{
+                flex: "0 0 auto",
+                color: isLight ? "black" : "white"
+              }}>
+                {color.color}
+              </span>
+          </div>
+        )
+
+      });
+
       return (
         <div key={index} style={styles.colorGroup}>
-          <div style={styles.colorCircles}>
-            {this.renderColorCircle(colorGroup.color)}
-            {this.renderColorCircle(colorGroup.bg, "sm")}
-            {this.renderColorCircle(colorGroup.fg, "sm")}
-          </div>
+          {group}
         </div>
       )
-    })
+    });
   }
 
   render() {

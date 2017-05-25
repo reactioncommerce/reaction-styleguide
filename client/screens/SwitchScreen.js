@@ -1,34 +1,10 @@
-import React, { Component } from "react";
-import { Switch, FlatButton, IconButton, Divider, Card, CardBody, CardHeader, Section } from "../components"
+import React, { Component, PropTypes } from "react";
+import { Switch, Section, ExampleBlock } from "../components";
+import * as PTD from "../../lib/propTypeDefinitions";
 
-
-const details = {
-  flat: {
-    title: "Flat Buttons",
-    description: "Buttons with no background or border"
-  },
-  solid: {
-    title: "Solid Buttons",
-    description: "Buttons with a solid background color"
-  },
-  outline: {
-    title: "Outline Buttons",
-    description: "Buttons with an outline, for Admin primarily"
-  }
-}
-
-const statusNames = [
-  "primary",
-  "default",
-  "info",
-  "warning",
-  "danger",
-]
-
-const bezelStyles = [
-  "flat",
-  "solid",
-  "outline"
+export const switchProps = [
+  PTD.i18nKeyLabel,
+  PTD.label,
 ]
 
 class SwitchScreen extends Component {
@@ -36,20 +12,43 @@ class SwitchScreen extends Component {
     checked: true
   }
 
+  handleCheck = (event, isChecked) => {
+    this.setState({
+      checked: !this.state.checked
+    })
+  }
+
   render() {
     return (
-      <Section title="Switch">
-        <Switch
-          checked={this.state.checked}
-          onChange={(event, isChecked) => {
-            this.setState({
-              checked: !this.state.checked
-            })
+      <Section title="Slider">
+        <Section>
+          <Switch
+            checked={this.state.checked}
+            onChange={(event, isChecked) => {
+
+            }}
+          />
+        </Section>
+        <ExampleBlock
+          componentProps={switchProps}
+          importStatement={{
+            named: ["Slider"],
+            source: "https://github.com/reactioncommerce/reaction/blob/master/imports/plugins/core/ui/client/components/slider/slider.js"
           }}
-        />
+        >
+          <Switch
+            checked={this.state.checked}
+            onChange={(event, isChecked) => {
+              this.setState({
+                checked: !this.state.checked
+              })
+            }}
+          />
+        </ExampleBlock>
       </Section>
-    )
+
+    );
   }
 }
 
-export default SwitchScreen
+export default SwitchScreen;
