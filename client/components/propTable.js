@@ -71,7 +71,7 @@ class PropTable extends Component {
       return this.props.componentProps.map((prop, index) => {
         return (
           <tr key={index}>
-            <td>{prop.name}</td>
+            <td className="sg-prop-name">{prop.name}</td>
             <td>{prop.type}</td>
             <td><div dangerouslySetInnerHTML={this.createMarkup(prop.description)} /></td>
             <td>{this.renderControl(prop)}</td>
