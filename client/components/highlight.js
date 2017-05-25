@@ -27,7 +27,7 @@ class Highlight extends Component {
   render() {
     if (this.props.type === "text") {
       return (
-        <pre className="sg-example-code">
+        <pre className="sg-example-code inverted">
           <code className={this.props.className}>
             {this.props.children}
           </code>

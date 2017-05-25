@@ -10,7 +10,7 @@ const componentProps = [
 class DividerScreen extends Component {
   render() {
     return (
-      <Section title="Checkbox">
+      <Section title="Divider">
         <Section>
           <Divider />
           <Divider label="Text In Middle" />

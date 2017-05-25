@@ -45,7 +45,13 @@ class CardScreen extends Component {
   render() {
     return (
       <Section title="Cards">
-        <ExampleBlock componentProps={componentProps}>
+        <ExampleBlock
+          componentProps={componentProps}
+          importStatement={{
+            named: ["Card, CardHEader, CardBody"],
+            path: "core/ui/client/components"
+          }}
+        >
           <Card>
             <CardHeader title="Card Title" />
             <CardBody>
@@ -57,6 +63,10 @@ class CardScreen extends Component {
         <h3><Translation defaultValue="Card Header" i18nKey="styleguide.cardHeader" /></h3>
         <ExampleBlock
           componentProps={cardHeaderProps}
+          importStatement={{
+            named: ["CardHeader"],
+            path: "core/ui/client/components"
+          }}
           wrapperComponent={<Card />}
         >
           <CardHeader title="Card Title" />
@@ -64,6 +74,10 @@ class CardScreen extends Component {
 
         <ExampleBlock
           componentProps={componentProps}
+          importStatement={{
+            named: ["CardTitle"],
+            path: "core/ui/client/components"
+          }}
           wrapperComponent={<Card />}
         >
           <CardTitle title="Card Title" />
@@ -71,6 +85,10 @@ class CardScreen extends Component {
 
         <ExampleBlock
           componentProps={componentProps}
+          importStatement={{
+            named: ["CardBody"],
+            path: "core/ui/client/components"
+          }}
           wrapperComponent={<Card />}
         >
           <CardBody>

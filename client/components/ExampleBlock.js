@@ -78,12 +78,17 @@ class ExampleBlock extends Component {
     }
 
     if (importText) {
+      /*
+
+       */
       return (
-        <div className="sg-import-block">
-          <div className="sg-import-heading">{"import"}</div>
-          <Highlight type="text">
-            {importText}
-          </Highlight>
+        <div>
+          <div className="sg-import-heading">{"Import"}</div>
+          <div className="sg-import-block">
+            <Highlight type="text">
+              {importText}
+            </Highlight>
+          </div>
         </div>
       );
     }
@@ -107,6 +112,7 @@ class ExampleBlock extends Component {
     return (
       <div>
         {this.renderImport()}
+        <div className="sg-import-heading">{"Example"}</div>
         <div className="sg-example-block" style={styles.base}>
           <Highlight>
             {exampleComponent}

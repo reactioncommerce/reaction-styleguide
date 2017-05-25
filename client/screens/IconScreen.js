@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { Icon, Section, ExampleBlock, Text } from "../components"
 import * as PTD from "../../lib/propTypeDefinitions";
+import { composeWithTracker } from "/lib/api/compose"
+import { Packages } from "/lib/collections"
 
 export const iconProps = [
   {
@@ -32,7 +34,15 @@ class IconScreen extends Component {
             {`Icons from [font awesome](http://fontawesome.io/) and custom.`}
           </Text>
 
-          <Icon icon="fa fa-star" />
+          <div>
+            {this.props.icons.map((icon) => {
+              return (
+                <span style={{padding: 5}}>
+                  <Icon icon={icon} />
+                </span>
+              )
+            })}
+          </div>
         </Section>
 
         <ExampleBlock
@@ -49,4 +59,15 @@ class IconScreen extends Component {
   }
 }
 
-export default IconScreen
+
+function composer(props, onData) {
+  const icons = Packages.find({}).map((packageData) => {
+    return packageData.icon
+  });
+
+  onData(null, {
+    icons
+  });
+}
+
+export default composeWithTracker(composer)(IconScreen)
