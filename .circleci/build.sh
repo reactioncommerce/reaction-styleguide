@@ -4,7 +4,7 @@ set -e
 
 DOCKER_NAMESPACE=${DOCKER_NAMESPACE:-"reactioncommerce/reaction-styleguide"}
 
-cd $BUILD_DIR
+cd $BUILD_DIR/reaction
 
 # build new image
 reaction build $DOCKER_NAMESPACE:latest
