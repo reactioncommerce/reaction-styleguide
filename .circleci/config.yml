@@ -1,0 +1,22 @@
+version: 2
+
+jobs:
+  build:
+    working_directory: /home/reaction
+
+    docker:
+      - image: node:7-slim
+
+    environment:
+      - METEOR_ALLOW_SUPERUSER: true
+
+    steps:
+      - setup_remote_docker
+
+      - run: .circleci/install.sh
+      - run: .circleci/build.sh
+
+      # deploy the build (if on a deployment branch)
+      - deploy:
+          name: Docker Image Deploment
+          command: .circleci/deploy.sh
