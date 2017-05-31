@@ -10,6 +10,8 @@ if [[ -z "$CIRCLE_TAG" && "$CIRCLE_BRANCH" != "development" && "$CIRCLE_BRANCH" 
   exit 0
 fi
 
+cd $BUILD_DIR
+
 # build new image
 reaction build $DOCKER_NAMESPACE:latest
 

@@ -15,6 +15,8 @@ docker -v
 yarn global add reaction-cli
 
 # install Reaction
+mkdir -p $BUILD_DIR
+cd $BUILD_DIR
 reaction init && cd reaction
 
 # add the styleguide plugin to Reaction

@@ -8,10 +8,12 @@ jobs:
       - image: node:7-slim
 
     environment:
+      - BUILD_DIR: /opt/styleguide
       - METEOR_ALLOW_SUPERUSER: true
 
     steps:
       - setup_remote_docker
+      - checkout
 
       - run: .circleci/install.sh
       - run: .circleci/build.sh
