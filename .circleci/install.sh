@@ -21,8 +21,8 @@ yarn global add reaction-cli
 # install Reaction
 mkdir -p $BUILD_DIR
 cd $BUILD_DIR
-git clone git@github.com:reactioncommerce/reaction && cd reaction
+git clone https://github.com/reactioncommerce/reaction.git && cd reaction
 
 
 # add the styleguide plugin to Reaction
-git submodule add -f git@github.com:reactioncommerce/reaction-styleguide.git imports/plugins/custom/styleguide
+git submodule add -f https://github.com/reactioncommerce/reaction-styleguide.git imports/plugins/custom/styleguide
