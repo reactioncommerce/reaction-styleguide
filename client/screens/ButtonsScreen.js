@@ -342,7 +342,13 @@ class ButtonsScreen extends Component {
       <Section title="Buttons">
         {this.renderButtons()}
 
-        <ExampleBlock componentProps={componentProps}>
+        <ExampleBlock
+          componentProps={componentProps}
+          importStatement={{
+            named: ["Button"],
+            source: "/imports/plugins/core/ui/client/components/buttons/button.jsx"
+          }}
+        >
           <Button />
         </ExampleBlock>
       </Section>

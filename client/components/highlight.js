@@ -38,7 +38,11 @@ class Highlight extends Component {
     return (
       <pre className="sg-example-code">
         <code className={this.props.className}>
-          {reactElementToJSXString(this.props.children)}
+          {reactElementToJSXString(this.props.children, {
+            displayName: (element) => {
+              return element.type.name
+            }
+          })}
         </code>
       </pre>
     )

@@ -60,7 +60,7 @@ class SliderScreen extends Component {
           componentProps={sliderProps}
           importStatement={{
             named: ["Slider"],
-            source: "https://github.com/reactioncommerce/reaction/blob/master/imports/plugins/core/ui/client/components/slider/slider.js"
+            source: "/imports/plugins/core/ui/client/components/slider/slider.js"
           }}
         >
           <Slider

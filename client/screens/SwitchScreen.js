@@ -3,8 +3,12 @@ import { Switch, Section, ExampleBlock } from "../components";
 import * as PTD from "../../lib/propTypeDefinitions";
 
 export const switchProps = [
+  PTD.checked,
   PTD.i18nKeyLabel,
+  PTD.i18nKeyOnLabel,
   PTD.label,
+  // PTD.name,
+  PTD.onLabel
 ]
 
 class SwitchScreen extends Component {
@@ -32,8 +36,8 @@ class SwitchScreen extends Component {
         <ExampleBlock
           componentProps={switchProps}
           importStatement={{
-            named: ["Slider"],
-            source: "https://github.com/reactioncommerce/reaction/blob/master/imports/plugins/core/ui/client/components/slider/slider.js"
+            named: ["Switch"],
+            source: "/imports/plugins/core/ui/client/components/slider/slider.js"
           }}
         >
           <Switch
