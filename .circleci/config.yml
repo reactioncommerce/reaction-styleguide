@@ -8,6 +8,7 @@ jobs:
       - image: node:7-slim
 
     environment:
+      - DOCKER_VERSION: 17.03.1-ce
       - BUILD_DIR: /opt/styleguide
       - METEOR_ALLOW_SUPERUSER: true
 
