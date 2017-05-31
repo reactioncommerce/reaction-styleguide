@@ -7,7 +7,7 @@ DOCKER_NAMESPACE=${DOCKER_NAMESPACE:-"reactioncommerce/reaction-styleguide"}
 cd $BUILD_DIR/reaction
 
 # build new image
-docker build -t $DOCKER_NAMESPACE:latest
+docker build -t $DOCKER_NAMESPACE:latest .
 
 # run the container and wait for it to boot
 docker run --name styleguide -p 3000:3000 -d $DOCKER_NAMESPACE:latest
