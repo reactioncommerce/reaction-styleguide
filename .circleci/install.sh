@@ -10,10 +10,6 @@ mv /tmp/docker/* /usr/bin
 docker -v
 
 
-# install Reaction CLI
-yarn global add reaction-cli
-
-
 # install Reaction
 mkdir -p $BUILD_DIR
 cd $BUILD_DIR
