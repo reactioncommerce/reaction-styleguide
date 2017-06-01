@@ -22,8 +22,9 @@ npm install -g reaction-cli
 reaction init my-styleguide
 
 # Move into the app directory
+cd my-styleguide
 
-# Clone this repo into that folder. Or you could download an unzip if you prefer
+# Clone this repo into the plugins folder. Or you could download it and unzip there if you prefer
 git submodule add -f https://github.com/reactioncommerce/reaction-styleguide.git imports/plugins/custom/styleguide
 
 # Run reaction to build the app and install the styleguide plugin
