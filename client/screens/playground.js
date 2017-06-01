@@ -26,7 +26,7 @@ class Playground extends Component {
   render() {
 
     const guidePageName = Router.getParam("guide");
-    const pageComponent = Pages[guidePageName];
+    const pageComponent = Pages[guidePageName] || Pages.index;
 
     let element
 

@@ -40,7 +40,6 @@ const cardHeaderProps = [
   },
 ]
 
-
 class CardScreen extends Component {
   render() {
     return (
@@ -48,7 +47,7 @@ class CardScreen extends Component {
         <ExampleBlock
           componentProps={componentProps}
           importStatement={{
-            named: ["Card, CardHEader, CardBody"],
+            named: ["Card, CardHeader, CardBody"],
             path: "core/ui/client/components"
           }}
         >

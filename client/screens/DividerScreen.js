@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import { Divider, Section, ExampleBlock } from "../components"
+import { Divider, Section, ExampleBlock } from "../components";
 import * as PTD from "../../lib/propTypeDefinitions";
 
 const componentProps = [
   PTD.i18nKeyLabel,
   PTD.label,
-]
+];
 
 class DividerScreen extends Component {
   render() {
@@ -25,4 +25,4 @@ class DividerScreen extends Component {
   }
 }
 
-export default DividerScreen
+export default DividerScreen;

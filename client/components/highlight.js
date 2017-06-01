@@ -40,7 +40,7 @@ class Highlight extends Component {
         <code className={this.props.className}>
           {reactElementToJSXString(this.props.children, {
             displayName: (element) => {
-              return element.type.name
+              return element.type.displayName
             }
           })}
         </code>

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Checkbox, Section, ExampleBlock } from "../components"
+import { Checkbox, Section, ExampleBlock } from "../components";
 import * as PTD from "../../lib/propTypeDefinitions";
 
 const componentProps = [
@@ -10,8 +10,7 @@ const componentProps = [
     description: "Change callback params (event, isInputChecked)"
   },
   PTD.label,
-]
-
+];
 
 class CheckboxScreen extends Component {
   state = {
@@ -45,4 +44,4 @@ class CheckboxScreen extends Component {
   }
 }
 
-export default CheckboxScreen
+export default CheckboxScreen;

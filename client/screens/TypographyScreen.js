@@ -55,15 +55,14 @@ const styles = {
 
 const titleText = "Pack my box with five dozen liquor jugs"
 
-class ColorScreen extends Component {
+class TypographyScreen extends Component {
   state = {
     checked: true
   }
 
   render() {
-    console.log("ook??");
     return (
-      <Section title="Colors">
+      <Section title="Typography">
         <div>
           <div>
             <h1>{"Source Sans Pro"}</h1>
@@ -87,4 +86,4 @@ class ColorScreen extends Component {
   }
 }
 
-export default Radium(ColorScreen)
+export default Radium(TypographyScreen)

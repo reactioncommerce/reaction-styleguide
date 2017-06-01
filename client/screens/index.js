@@ -9,6 +9,7 @@ export { default as CheckboxScreen } from "./CheckboxScreen";
 export { default as DividerScreen } from "./DividerScreen";
 export { default as DropDownMenuScreen } from "./DropDownMenuScreen";
 export { default as IconScreen } from "./IconScreen";
+export { default as IntroScreen } from "./IntroScreen";
 export { default as ListsScreen } from "./ListsScreen";
 export { default as MediaScreen } from "./MediaScreen";
 export { default as MenuScreen } from "./MenuScreen";
