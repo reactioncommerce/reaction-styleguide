@@ -30,6 +30,7 @@ RUIComponents.ListItem.displayName = "ListItem";
 RUIComponents.MediaGallery.displayName = "MediaGallery";
 RUIComponents.MediaItem.displayName = "MediaItem";
 RUIComponents.Menu.displayName = "Menu";
+RUIComponents.MenuItem.displayName = "MenuItem";
 RUIComponents.Metadata.displayName = "Metadata";
 RUIComponents.Metafield.displayName = "Metafield";
 RUIComponents.MultiSelect.displayName = "MultiSelect";
