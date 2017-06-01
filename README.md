@@ -19,20 +19,15 @@ npm install -g reaction-cli
 
 ```sh
 # Checkout a fresh copy of reaction as a different name.
-reaction init reaction-sg
+reaction init my-styleguide
 
-# Change directory to the custom folder
-cd reaction-sg/imports/plugins/custom/
+# Move into the app directory
 
 # Clone this repo into that folder. Or you could download an unzip if you prefer
-git clone https://github.com/reactioncommerce/reaction-styleguide.git
+git submodule add -f https://github.com/reactioncommerce/reaction-styleguide.git imports/plugins/custom/styleguide
 
-# Go back to the root of `reaction-sg`
-cd ../../../
-
-# Run reaction
+# Run reaction to build the app and install the styleguide plugin
 reaction
 
-# Or on a different port
-reaction --port 3020
+# running on http://localhost:3000/
 ```
