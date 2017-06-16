@@ -1,11 +1,8 @@
 import React, { Component } from "react";
 import {
-  Button, FlatButton, IconButton, Divider, Card,
-  CardBody, CardTitle, CardHeader, Section,
+  Card, CardBody, CardTitle, CardHeader, Section,
   ExampleBlock, Translation
-} from "../components"
-
-
+} from "../components";
 
 const componentProps = [
   {
@@ -16,8 +13,8 @@ const componentProps = [
       type: "switch",
       value: false
     }
-  },
-]
+  }
+];
 
 const cardHeaderProps = [
   {
@@ -37,8 +34,8 @@ const cardHeaderProps = [
       type: "text",
       value: "Card Title"
     }
-  },
-]
+  }
+];
 
 class CardScreen extends Component {
   render() {
@@ -48,7 +45,8 @@ class CardScreen extends Component {
           componentProps={componentProps}
           importStatement={{
             named: ["Card, CardHeader, CardBody"],
-            path: "core/ui/client/components"
+            path: "core/ui/client/components",
+            source: "/imports/plugins/core/ui/client/components/cards/card.js"
           }}
         >
           <Card>
@@ -64,7 +62,8 @@ class CardScreen extends Component {
           componentProps={cardHeaderProps}
           importStatement={{
             named: ["CardHeader"],
-            path: "core/ui/client/components"
+            path: "core/ui/client/components",
+            source: "/imports/plugins/core/ui/client/components/cards/cardHeader.js"
           }}
           wrapperComponent={<Card />}
         >
@@ -75,7 +74,8 @@ class CardScreen extends Component {
           componentProps={componentProps}
           importStatement={{
             named: ["CardTitle"],
-            path: "core/ui/client/components"
+            path: "core/ui/client/components",
+            source: "/imports/plugins/core/ui/client/components/cards/cardTitle.js"
           }}
           wrapperComponent={<Card />}
         >
@@ -86,7 +86,8 @@ class CardScreen extends Component {
           componentProps={componentProps}
           importStatement={{
             named: ["CardBody"],
-            path: "core/ui/client/components"
+            path: "core/ui/client/components",
+            source: "/imports/plugins/core/ui/client/components/cards/cardBody.js"
           }}
           wrapperComponent={<Card />}
         >
@@ -95,8 +96,8 @@ class CardScreen extends Component {
           </CardBody>
         </ExampleBlock>
       </Section>
-    )
+    );
   }
 }
 
-export default CardScreen
+export default CardScreen;

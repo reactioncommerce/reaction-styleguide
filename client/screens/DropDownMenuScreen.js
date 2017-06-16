@@ -60,7 +60,14 @@ class DividerScreen extends Component {
           </DropDownMenu>
         </Section>
 
-        <ExampleBlock componentProps={componentProps}>
+        <ExampleBlock
+          componentProps={componentProps}
+          importStatement={{
+            named: ["DropDownMenu", "MenuItem"],
+            path: "core/ui/client/components",
+            source: "/imports/plugins/core/ui/client/components/menu/dropDownMenu.js"
+          }}
+        >
           <DropDownMenu
             onChange={this.handleChange}
             value={this.state.value}
