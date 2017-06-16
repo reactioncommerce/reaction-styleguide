@@ -1,5 +1,5 @@
 import React from "react";
-import { Translation, ExampleBlock, Section } from "/imports/plugins/core/ui/client/components";
+import { Translation, ExampleBlock, Section } from "../components";
 
 export const translationProps = [
   {
@@ -25,7 +25,7 @@ export const translationProps = [
 
 const TranslationScreen = () => {
   return (
-    <Section title="Slider">
+    <Section title="Translation">
       <Section>
         <Translation defaultValue="Dashboard" i18nKey={"admin.shortcut.dashboardLabel"} />
       </Section>
@@ -39,7 +39,7 @@ const TranslationScreen = () => {
         <Translation defaultValue="Dashboard" i18nKey={"admin.shortcut.dashboardLabel"} />
       </ExampleBlock>
     </Section>
-  )
+  );
 };
 
 export default TranslationScreen;
