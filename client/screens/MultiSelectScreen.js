@@ -54,7 +54,7 @@ class MultiSelectScreen extends Component {
           componentProps={multiSelectProps}
           importStatement={{
             named: ["MultiSelect"],
-            soruce: "/imports/plugins/core/ui/client/components/multiselect/multiselect.js"
+            source: "/imports/plugins/core/ui/client/components/multiselect/multiselect.js"
           }}
           title="MultiSelect"
         >

@@ -89,7 +89,7 @@ class MetadataScreen extends Component {
           componentProps={metaDataProps}
           importStatement={{
             named: ["Metadata"],
-            soruce: "/imports/plugins/core/ui/client/components/metadata/metadata.js"
+            source: "/imports/plugins/core/ui/client/components/metadata/metadata.js"
           }}
           title="Metadata, key / value table"
         >
@@ -103,7 +103,7 @@ class MetadataScreen extends Component {
           componentProps={metaItemProps}
           importStatement={{
             named: ["Metafield"],
-            soruce: "/imports/plugins/core/ui/client/components/metadata/metafield.js"
+            source: "/imports/plugins/core/ui/client/components/metadata/metafield.js"
           }}
           title="Metafield"
         >
