@@ -42,7 +42,8 @@ class ListsScreen extends Component {
           title="List with different action types"
           importStatement={{
             named: ["List, ListItem"],
-            path: "core/ui/client/components"
+            path: "core/ui/client/components",
+            source: "/imports/plugins/core/ui/client/components/list/list.js"
           }}
         >
           <List>
@@ -62,7 +63,8 @@ class ListsScreen extends Component {
           componentProps={listItemProps}
           importStatement={{
             named: ["List, ListItem"],
-            path: "core/ui/client/components"
+            path: "core/ui/client/components",
+            source: "/imports/plugins/core/ui/client/components/list/listItem.js"
           }}
           wrapperComponent={<List />}
         >
