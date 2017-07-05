@@ -50,7 +50,8 @@ class IconScreen extends Component {
           componentProps={iconProps}
           importStatement={{
             named: ["Icon"],
-            path: "core/ui/client/components"
+            path: "core/ui/client/components",
+            source: "/imports/plugins/core/ui/client/components/icon/icon.jsx"
           }}
         >
           <Icon icon="fa fa-star" />
