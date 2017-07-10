@@ -9,7 +9,7 @@ const componentProps = [
     ...PTD.onChange,
     description: "Change callback params (event, isInputChecked)"
   },
-  PTD.label,
+  PTD.label
 ];
 
 class CheckboxScreen extends Component {
@@ -26,7 +26,6 @@ class CheckboxScreen extends Component {
   render() {
     return (
       <Section title="Checkbox">
-
         <Section>
           <Checkbox
             label="Check Box"
@@ -34,13 +33,20 @@ class CheckboxScreen extends Component {
           />
         </Section>
 
-        <ExampleBlock componentProps={componentProps}>
+        <ExampleBlock
+          componentProps={componentProps}
+          importStatement={{
+            named: ["Checkbox"],
+            path: "core/ui/client/components",
+            source: "/imports/plugins/core/ui/client/components/checkbox/checkbox.js"
+          }}
+        >
           <Checkbox
             label="Check Box"
           />
         </ExampleBlock>
       </Section>
-    )
+    );
   }
 }
 

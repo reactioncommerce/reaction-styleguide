@@ -17,7 +17,14 @@ class DividerScreen extends Component {
         </Section>
 
 
-        <ExampleBlock componentProps={componentProps}>
+        <ExampleBlock
+          componentProps={componentProps}
+          importStatement={{
+            named: ["Divider"],
+            path: "core/ui/client/components",
+            source: "/imports/plugins/core/ui/client/components/divider/divider.js"
+          }}
+        >
           <Divider />
         </ExampleBlock>
       </Section>

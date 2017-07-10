@@ -1,34 +1,19 @@
 import React, { Component } from "react";
-import { Button, FlatButton, IconButton, Divider, Highlight, Section, ExampleBlock } from "../components"
-import Radium from "radium"
-
-const details = {
-  flat: {
-    title: "Flat Buttons",
-    description: "Buttons with no background or border"
-  },
-  solid: {
-    title: "Solid Buttons",
-    description: "Buttons with a solid background color"
-  },
-  outline: {
-    title: "Outline Buttons",
-    description: "Buttons with an outline, for Admin primarily"
-  }
-}
+import { Button, Section, ExampleBlock } from "../components";
+import Radium from "radium";
 
 const statusNames = [
   "primary",
   "default",
   "info",
   "warning",
-  "danger",
-]
+  "danger"
+];
 
 const bezelStyles = [
   "flat",
   "solid"
-]
+];
 
 const componentProps = [
   {
@@ -271,89 +256,52 @@ const componentProps = [
       type: "text",
       value: ""
     }
-  },
-]
-class ButtonsScreen extends Component {
+  }
+];
 
-  // renderButtons() {
-  //   return bezelStyles.map((bezelStyle) => {
-  //     const detail = details[bezelStyle];
-  //
-  //     const family = statusNames.map((statusName) => {
-  //       return (
-  //         <div style={{display: "flex", padding: 5}}>
-  //           <Button
-  //             label="Button"
-  //             bezelStyle={bezelStyle}
-  //             status={statusName}
-  //           />
-  //         </div>
-  //       )
-  //     })
-  //
-  //     return (
-  //       <div>
-  //         <h3>{detail.title}</h3>
-  //         <p>{detail.description}</p>
-  //         <div style={{display: "flex"}}>
-  //           {family}
-  //         </div>
-  //         <Divider />
-  //         <div>
-  //           <Highlight className="html">
-  //             <Button
-  //               label="Button"
-  //               bezelStyle="solid"
-  //               status="primary"
-  //             />
-  //           </Highlight>
-  //         </div>
-  //       </div>
-  //     )
-  //   })
-  // }
+class ButtonsScreen extends Component {
 
   renderButtons() {
     return bezelStyles.map((bezelStyle) => {
-      const detail = details[bezelStyle];
-
       const family = statusNames.map((statusName) => {
         return (
-          <div style={{display: "flex", padding: 5}}>
+          <div style={{ display: "flex", padding: 5 }}>
             <Button
               label="Button"
               bezelStyle={bezelStyle}
               status={statusName}
             />
           </div>
-        )
-      })
+        );
+      });
 
       return (
-        <div style={{display: "flex"}}>
+        <div style={{ display: "flex" }}>
           {family}
         </div>
-      )
-    })
+      );
+    });
   }
 
   render() {
     return (
       <Section title="Buttons">
-        {this.renderButtons()}
+        <Section>
+          {this.renderButtons()}
+        </Section>
 
         <ExampleBlock
           componentProps={componentProps}
           importStatement={{
             named: ["Button"],
-            source: "/imports/plugins/core/ui/client/components/buttons/button.jsx"
+            source: "/imports/plugins/core/ui/client/components/button/button.jsx"
           }}
         >
           <Button />
         </ExampleBlock>
       </Section>
-    )
+    );
   }
 }
 
-export default Radium(ButtonsScreen)
+export default Radium(ButtonsScreen);

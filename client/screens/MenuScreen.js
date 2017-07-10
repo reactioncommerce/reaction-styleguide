@@ -87,7 +87,13 @@ class MediaScreen extends Component {
 
         <ExampleBlock
           title="Menu with items"
-          componentProps={menuProps}>
+          componentProps={menuProps}
+          importStatement={{
+            named: ["Menu", "MenuItem"],
+            path: "core/ui/client/components",
+            source: "/imports/plugins/core/ui/client/components/menu/menu.js"
+          }}
+        >
           <Menu
             onChange={this.handleChange}
             value={this.state.value}
@@ -112,6 +118,11 @@ class MediaScreen extends Component {
         <ExampleBlock
           title="Menu Item"
           componentProps={menuItemProps}
+          importStatement={{
+            named: ["Menu", "MenuItem"],
+            path: "core/ui/client/components",
+            source: "/imports/plugins/core/ui/client/components/menu/menuItem.js"
+          }}
           wrapperComponent={<Menu />}
         >
           <MenuItem
