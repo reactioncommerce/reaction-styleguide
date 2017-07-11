@@ -10,7 +10,7 @@ cd $BUILD_DIR/reaction
 docker build --build-arg TOOL_NODE_FLAGS="--max-old-space-size=4096" -t reactioncommerce/reaction-styleguide:latest .
 
 # run the container and wait for it to boot
-docker-compose -f .circleci/docker-compose.yml up -d
+docker-compose -f ./imports/plugins/custom/styleguide/.circleci/docker-compose.yml up -d
 sleep 30
 
 # use curl to ensure the app returns 200's
