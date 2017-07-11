@@ -15,7 +15,6 @@ jobs:
 
     steps:
       - setup_remote_docker
-      - checkout
 
       - run: .circleci/install.sh
       - run: .circleci/build.sh
