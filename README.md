@@ -1,3 +1,5 @@
+> Note: This repository is archived for read-only reference purposes. Check out the [Reaction Component Library](https://github.com/reactioncommerce/reaction-component-library) for the replacement.
+
 # reaction-styleguide
 A plugin for Reaction, transforming it into a style guide and UI component playground.
 
